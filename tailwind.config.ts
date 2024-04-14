@@ -8,10 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+        "roboto-slab": ["Roboto Slab"],
+      },
+      colors: {
+        rose: "#FFBDBD",
+        violet: "#3A1BFF",
+        "bleu-ciel": "#0CC4FF",
+        jaune: "#FFE700",
+        vert: "#00FD93",
+        "noir-100": "#010409",
+        "noir-80": "#1A1A1A",
+        "noir-60": "#111111",
+        "jaune-transparent": "#FFE70010",
+        "violet-transparent": "#3A1BFF10",
+        "vert-transparent": "#00FD9310",
       },
     },
   },

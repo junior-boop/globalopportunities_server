@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,17 +21,108 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--background-end-rgb));
+  background: rgb(var(--foreground-rgb));
+}
+
+.screen {
+  height: calc(100vh -62px);
+  overflow: auto
+}
+
+.grid-template-col {
+  @apply grid;
+  grid-template-columns: 350px 1fr;
+  height: calc(100vh - 62px);
+  gap: 16px;
+  overflow: hidden;
+}
+
+.uploadVideo {
+  @apply w-full border border-noir-80 relative bg-noir-80;
+
+  input {
+    position: relative;
+    visibility: hidden;
+    width: 100%;
+    height: 64px;
+    z-index: 10;
+  }
+
+  input::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    width: 100%;
+    height: 64px;
+  }
+  
+  .inputvideoUi {
+    @apply flex items-center absolute top-0 left-0 w-full h-16 p-4 gap-4;
+  }
+}
+
+.input-image {
+  position: relative;
+
+  input {
+    position: relative; 
+    top: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    z-index: 5;
+  }
+
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  input::before {
+    content: '';
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .savebtn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 64px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+    @apply bg-noir-80
+  }
+}
+
+
+.css-injection {
+  backdrop-filter: blur(10);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
 }
