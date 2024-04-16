@@ -132,7 +132,7 @@ export default function InputVideo({ data, duration, id }: InputVideo) {
                         </>)
                         : (
                             <div className="px-4 flex items-center flex-1 pb-4 gap-4">
-                                It's computing <SvgSpinners3DotsFade className="w-6 h-6 " />
+                                It{"'"}s computing <SvgSpinners3DotsFade className="w-6 h-6 " />
                             </div>
                         )
                 }
@@ -207,7 +207,7 @@ export function InputVideo_2({ duration }: any) {
                         </>)
                         : (
                             <div className="px-4 flex items-center flex-1 pb-4 gap-4">
-                                It's computing <SvgSpinners3DotsFade className="w-6 h-6 " />
+                                It{"'"}s computing <SvgSpinners3DotsFade className="w-6 h-6 " />
                             </div>
                         )
                 }

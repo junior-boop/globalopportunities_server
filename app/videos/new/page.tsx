@@ -40,7 +40,10 @@ export default function Videos() {
             onUploadProgress: ({ loaded, total }) => {
                 setUpload(true)
                 setDisable(true)
-                setLoading((loaded / total) * 100)
+
+                if (total !== undefined) {
+                    setLoading((loaded / total) * 100)
+                }
 
                 if (loaded === total) {
                     setComplet(true)
@@ -81,7 +84,7 @@ export default function Videos() {
                                                         ? (<div className="h-full relative w-full">
                                                             <div className="bg-black opacity-35 h-full" style={{ width: `${loading}%` }}></div>
                                                             <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center px-4 gap-3">
-                                                                <SvgSpinners8DotsRotate className="h-6 w-6" /> Wait! It's saving...
+                                                                <SvgSpinners8DotsRotate className="h-6 w-6" /> Wait! It{"'"}s saving...
                                                             </div>
                                                         </div>)
                                                         : (
