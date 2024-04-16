@@ -13,7 +13,7 @@ type InputTextProps = {
     value?: string
 }
 export default function InputText({ name, label, placeholder, url, mettingId, value = "" }: InputTextProps) {
-    const inputRef = useRef<HTMLInputElement>()
+    const inputRef = useRef<HTMLInputElement>(null)
     const [isLoading, setIsloading] = useState(false)
     const [disabled, setDisable] = useState(false)
 
@@ -21,7 +21,7 @@ export default function InputText({ name, label, placeholder, url, mettingId, va
     const uploadChangement = async () => {
         setIsloading(true)
 
-        const input = inputRef.current
+        const input = inputRef.current as HTMLInputElement
         if (input !== undefined) {
 
             if (!disabled) {

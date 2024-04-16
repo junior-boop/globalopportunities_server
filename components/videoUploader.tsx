@@ -26,7 +26,7 @@ export default function InputVideo({ data, duration, id }: InputVideo) {
     const [loader, setLoader] = useState(false)
 
     const [disabled, setDisable] = useState(false)
-    const inputRef = useRef<HTMLInputElement>()
+    const inputRef = useRef<HTMLInputElement>(null)
 
     const originalName = data.originalname.length > 50 ? `${data.originalname.substring(0, 49)}...` : data.originalname
 
@@ -97,6 +97,8 @@ export default function InputVideo({ data, duration, id }: InputVideo) {
         }
 
     }
+
+
 
 
 

@@ -11,8 +11,8 @@ type InputImageProps = {
 export default function InputImage({ url, value, id }: InputImageProps) {
     const [isLoading, setIsloading] = useState(false)
     const [disabled, setDisable] = useState(false)
-    const image = useRef()
-    const inputRef = useRef()
+    const image = useRef<HTMLImageElement>(null)
+    const inputRef = useRef<HTMLInputElement>(null)
 
     const handleInputImage = ({ target }: any) => {
         setDisable(false)
@@ -85,7 +85,7 @@ export default function InputImage({ url, value, id }: InputImageProps) {
 export function InputImage_2({ url }: InputImageProps) {
     const [fileName, setFileName] = useState<string>('')
     const [open, setOpen] = useState(false)
-    const image = useRef()
+    const image = useRef<HTMLImageElement>(null)
 
     const handleInputImage = ({ target }: any) => {
         setOpen(false)
@@ -94,7 +94,8 @@ export function InputImage_2({ url }: InputImageProps) {
         const reader = new FileReader();
         reader.onload = () => {
             const base64String = reader.result;
-            image.current.src = base64String
+            const img = image.current as HTMLImageElement
+            img.src = base64String as string
 
         };
         reader.readAsDataURL(file);
