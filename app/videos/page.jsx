@@ -4,14 +4,14 @@ import VideoItem from "@/components/videoItem";
 
 
 const getData = async () => {
-    const request = await fetch(process.env.URL + '/metting', { cache: 'no-cache' })
+    const request = await fetch(process.env.URL + 'metting', { cache: 'no-cache' })
+    console.log(request.url, 'ville')
     const data = await request.json()
     return data
 }
 
 export default async function Videos() {
     const data = await getData()
-    console.log(data)
     return (
         <main className="relative">
             <HeaderPage name="Videos" hasBtn url="/videos/new" />

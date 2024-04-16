@@ -1,7 +1,7 @@
 'use client'
 import { RefAttributes, useEffect, useRef, useState, forwardRef } from "react";
 import { LucideClock, LucideFileDigit, LucideFileVideo, LucideSave, SvgSpinners3DotsFade, SvgSpinners8DotsRotate } from "./icones";
-import { FileConvertSize, secondsToMinutes } from "@/app/utils/fonctions";
+import { FileConvertSize, secondsToMinutes } from "@/utils/fonctions";
 
 export interface inputMedia {
     size: number,
