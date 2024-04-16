@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { RefAttributes, useEffect, useRef, useState, forwardRef } from "react";
 import { LucideClock, LucideFileDigit, LucideFileVideo, LucideSave, SvgSpinners3DotsFade, SvgSpinners8DotsRotate } from "./icones";
 import { FileConvertSize, secondsToMinutes } from "@/app/utils/fonctions";
 
@@ -26,7 +26,7 @@ export default function InputVideo({ data, duration, id }: InputVideo) {
     const [loader, setLoader] = useState(false)
 
     const [disabled, setDisable] = useState(false)
-    const inputRef = useRef()
+    const inputRef = useRef<HTMLInputElement>()
 
     const originalName = data.originalname.length > 50 ? `${data.originalname.substring(0, 49)}...` : data.originalname
 
@@ -97,6 +97,7 @@ export default function InputVideo({ data, duration, id }: InputVideo) {
         }
 
     }
+
 
 
     return (
