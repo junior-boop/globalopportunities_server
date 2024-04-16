@@ -8,8 +8,10 @@ export function FileConvertSize(aSize: number | string) {
     [1024 * 1024 * 1024 * 1024, "To"],
   ];
   for (let i = 0; i < def.length; i++) {
-    if (aSize < def[i][0]) {
-      return (aSize / def[i - 1][0]).toFixed(2) + " " + def[i - 1][1];
+    const compared = def[i][0] as number;
+    const value = def[i - 1][0] as number;
+    if (aSize < compared) {
+      return (aSize / value).toFixed(2) + " " + def[i - 1][1];
     }
   }
 }
