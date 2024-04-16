@@ -21,8 +21,10 @@ export default function InputImage({ url, value, id }: InputImageProps) {
         const reader = new FileReader();
         reader.onload = () => {
             const base64String = reader.result;
-            image.current.src = base64String
-
+            if (image.current !== undefined) {
+                const img = image.current as HTMLImageElement
+                img.src = base64String as string
+            }
         };
         reader.readAsDataURL(file);
     }
@@ -35,7 +37,10 @@ export default function InputImage({ url, value, id }: InputImageProps) {
 
             if (!disabled) {
                 const bodyContent = new FormData()
-                bodyContent.append('image', file.files[0])
+                const f = file as HTMLInputElement
+                if (f.files !== null) {
+                    bodyContent.append('image', f.files[0])
+                }
 
                 const link = await fetch(`/api/images/${id}`, {
                     method: 'PUT',

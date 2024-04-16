@@ -80,7 +80,8 @@ export default function InputVideo({ data, duration, id }: InputVideo) {
         if (file !== undefined) {
             if (!disabled) {
                 const bodyContent = new FormData()
-                bodyContent.append('video', file.files[0])
+                const f = file as HTMLInputElement
+                if (f.files !== null) bodyContent.append('video', f.files[0])
 
                 const link = await fetch(`/api/videos/${id}`, {
                     method: 'PUT',
