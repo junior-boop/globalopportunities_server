@@ -1,23 +1,17 @@
 import { HeaderPage } from "@/components/header";
 import VideoItem from "@/components/videoItem";
 
-export interface response {
-    videoId: string,
-    image: string,
-    title: string,
-    descript: string,
-    size: number,
-    duration: number
-}
 
-const getData = async (): Promise<response[]> => {
+
+const getData = async () => {
     const request = await fetch(process.env.URL + '/metting', { cache: 'no-cache' })
     const data = await request.json()
-    return data as response[]
+    return data
 }
 
 export default async function Videos() {
     const data = await getData()
+    console.log(data)
     return (
         <main className="relative">
             <HeaderPage name="Videos" hasBtn url="/videos/new" />

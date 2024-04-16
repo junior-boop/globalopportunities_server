@@ -9,9 +9,12 @@ export function FileConvertSize(aSize: number | string) {
   ];
   for (let i = 0; i < def.length; i++) {
     const compared = def[i][0] as number;
-    const value = def[i - 1][0] as number;
-    if (aSize < compared) {
-      return (aSize / value).toFixed(2) + " " + def[i - 1][1];
+    const rang = def[i - 1];
+    if (rang !== undefined) {
+      const value = def[i - 1][0] as number;
+      if (aSize < compared) {
+        return (aSize / value).toFixed(2) + " " + def[i - 1][1];
+      }
     }
   }
 }

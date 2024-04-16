@@ -2,9 +2,10 @@
 import { useEffect, useState } from "react";
 import { LucideTrash2, SvgSpinners8DotsRotate } from "./icones";
 import Link from "next/link";
-import { response } from "@/app/videos/page";
+// import { response } from "@/app/videos/page";
 import { useRouter } from "next/navigation";
 import { FileConvertSize, secondsToMinutes } from "@/app/utils/fonctions";
+import { response } from "@/app/videos/type";
 
 type VideoItemProps = {
     href: string,
