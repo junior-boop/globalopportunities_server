@@ -83,22 +83,24 @@ export default function InputImage({ url, value, id }: InputImageProps) {
 }
 
 export function InputImage_2({ url }: InputImageProps) {
-    const [fileName, setFileName] = useState<string>('')
+    const [fileName, setFileName] = useState<string>('Miniature')
     const [open, setOpen] = useState(false)
     const image = useRef<HTMLImageElement>(null)
 
-    const handleInputImage = ({ target }: any) => {
+    const handleInputImage = ({ target }: { target: HTMLInputElement }) => {
         setOpen(false)
-        const file = target.files[0]
+        if (target.files !== null) {
+            const file = target.files[0]
 
-        const reader = new FileReader();
-        reader.onload = () => {
-            const base64String = reader.result;
-            const img = image.current as HTMLImageElement
-            img.src = base64String as string
-
-        };
-        reader.readAsDataURL(file);
+            const reader = new FileReader();
+            reader.onload = () => {
+                const base64String = reader.result;
+                const img = image.current as HTMLImageElement
+                img.src = base64String as string
+                setFileName(file.name)
+            };
+            reader.readAsDataURL(file);
+        }
     }
     return (
         <div className="w-[400px]">
@@ -114,7 +116,7 @@ export function InputImage_2({ url }: InputImageProps) {
             </div>
             <div className="flex gap-4">
                 <LucideImage className="w-6 h-6" />
-                Miniature
+                {fileName}
             </div>
         </div>
     )

@@ -55,12 +55,6 @@ export default function Videos() {
         })
     }
 
-    useEffect(() => {
-        console.log(loading)
-    }, [loading])
-
-
-
     return (
         <main className="relative">
             <HeaderPage name="New video" />

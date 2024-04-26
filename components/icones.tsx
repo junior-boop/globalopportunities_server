@@ -97,3 +97,20 @@ export function LineMdConfirmCircle(props: SVGProps<SVGSVGElement>) {
         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"></animate></path><path stroke-dasharray="14" stroke-dashoffset="14" d="M8 12L11 15L16 10"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="14;0"></animate></path></g></svg>
     )
 }
+
+
+
+
+
+export function LineMdPauseToPlayFilledTransition(props: SVGProps<SVGSVGElement>) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><g fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M9 6L9 18L7 18L7 6z"><animate fill="freeze" attributeName="d" dur="0.4s" values="M9 18L7 18L7 6L9 6L9 18;M13 15L8 18L8 6L13 9L13 15"></animate><set attributeName="opacity" begin="0.4s" to="0"></set></path><path d="M15 6L17 6L17 18L15 18L15 6"><animate fill="freeze" attributeName="d" dur="0.4s" values="M15 6L17 6L17 18L15 18L15 6;M13 9L18 12L18 12L13 15L13 9"></animate><set attributeName="opacity" begin="0.4s" to="0"></set></path><path d="M8 6L18 12L8 18z" opacity="0"><set attributeName="opacity" begin="0.4s" to="1"></set></path></g></svg>
+    )
+}
+
+
+export function LineMdPlayFilledToPauseTransition(props: SVGProps<SVGSVGElement>) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}><g fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M13 15L8 18L8 6L13 9L13 15"><animate fill="freeze" attributeName="d" dur="0.4s" values="M13 15L8 18L8 6L13 9L13 15;M9 18L7 18L7 6L9 6L9 18"></animate></path><path d="M13 9L18 12L18 12L13 15L13 9"><animate fill="freeze" attributeName="d" dur="0.4s" values="M13 9L18 12L18 12L13 15L13 9;M15 6L17 6L17 18L15 18L15 6"></animate></path></g></svg>
+    )
+}

@@ -2,17 +2,17 @@
 import { useEffect, useState } from "react";
 import { LucideTrash2, SvgSpinners8DotsRotate } from "./icones";
 import Link from "next/link";
-// import { response } from "@/app/videos/page";
 import { useRouter } from "next/navigation";
 import { FileConvertSize, secondsToMinutes } from "@/utils/fonctions";
 import { response } from "@/app/videos/type";
 
 type VideoItemProps = {
     href: string,
-    data: response
+    data: response,
+    url: string
 }
 
-export default function VideoItem({ href = '/', data }: VideoItemProps) {
+export default function VideoItem({ href = '/', data, url }: VideoItemProps) {
     const router = useRouter()
     const title = data.title.length > 50 ? `${data.title.substring(0, 50)}...` : data.title
     const descript = data.descript.length > 176 ? `${data.descript.substring(0, 176)}...` : data.descript
@@ -39,7 +39,7 @@ export default function VideoItem({ href = '/', data }: VideoItemProps) {
             <Link href={href}>
                 <div className="flex items-start gap-6">
                     <div className="w-[200px] aspect-square bg-slate-800">
-                        <img src={`http://127.0.0.1:8787/images/${data.image}`} alt={data.image} className="w-full h-full object-cover" />
+                        <img src={`${url}/images/${data.image}`} alt={data.image} className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-1">
                         <h2 className="text-4xl font-semibold">{title}</h2>
@@ -60,5 +60,3 @@ export default function VideoItem({ href = '/', data }: VideoItemProps) {
         </div>
     )
 }
-
-

@@ -1,6 +1,8 @@
+
 import InputImage from "@/components/inputImage";
 import InputText from "@/components/inputText";
 import TextArea from "@/components/textArea";
+import VideoPlayers from "@/components/videoPlayer";
 import InputVideo from "@/components/videoUploader";
 
 
@@ -28,8 +30,12 @@ const getData = async (id: string): Promise<dataProps> => {
 export default async function Videos({ params }: any) {
     const { id } = params
     const data = await getData(id)
+
+
+
     return (
         <main className="pl-9 pt-9">
+            <VideoPlayers source={`${process.env.URL}/videos/${data.videoName}`} />
             <div className="flex w-[950px] gap-6">
                 <InputImage value={`${process.env.URL}/images/${data.imageName}`} id={data.videoId} />
                 <div className="flex-1">
